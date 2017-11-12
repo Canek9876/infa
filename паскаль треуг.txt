@@ -1,0 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <iostream>
+void main()
+{
+int N, i, j, l;
+long n;
+scanf("%d", &N);
+for (i = 0; i < N+1; i++)
+{
+for (j = 0; j < (20 - i) * 2; j++)
+printf(" "); /*Creates spaces in the line*/
+for (j = 0, l = i, n = 1; j < i; j++, l--, n = n * l / j)
+printf("%3ld ", n); /*Print out the numbers according to the formula C (k,n)*/
+printf("\n");
+} system("pause");
+}
