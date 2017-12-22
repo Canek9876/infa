@@ -1,0 +1,26 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include <cmath>
+#define exact 0.0001
+#define Xmin 1
+#define Xmax 3
+
+using namespace std;
+
+inline double f(const double x) { return exp((cos(log(x)) - sin(log(x))) / 2); }
+inline double defaultEQ(const double x) { return sin(log(x)) - cos(log(x)) + 2 * log(x); }
+
+int main()
+{
+	double prev, now;
+	prev = Xmax;
+	now = f(prev);
+	while (abs(prev - now) > exact) {
+		prev = now;
+		now = f(prev);
+	}
+	cout << now << endl;
+	cout << defaultEQ(now) << endl;
+    return 0;
+}
